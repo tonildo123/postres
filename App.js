@@ -1,53 +1,54 @@
-import React, { Component } from 'react'
-import {
-  StyleSheet,
-  TouchableOpacity,
-  Text,
-  View,
-} from 'react-native'
+import React, {state} from "react";
+import {View, Text, StyleSheet } from 'react-native';
 
-class App extends Component {
-  state = {
-    count: 0
-  }
+const HolaMundo = (props) =>{
 
-  onPress = () => {
-    this.setState({
-      count: this.state.count + 1
-    })
-  }
 
- render() {
-    return (
-      <View style={styles.container}>
-        <TouchableOpacity
-         style={styles.button}
-         onPress={this.onPress}
-        >
-         <Text>Click me</Text>
-        </TouchableOpacity>
-        <View>
-          <Text>
-            You clicked { this.state.count } times
-          </Text>
-        </View>
-      </View>
-    )
-  }
+
+  // usando hooks
+  // primero con handle states --> lo importamos arriba
+
+  return(
+    <View>
+          <Text>props.nombre </Text>
+    </View>
+
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+// estilos ahora --> importamos StyleSheet
+
+const diseño = StyleSheet.create({
+  item_centrados_y_alineados:{
+          flex: 1,
+          justifyContent: "center" ,
+          alignItems:"center"
   },
-  button: {
-    alignItems: 'center',
-    backgroundColor: '#DDDDDD',
-    padding: 10,
-    marginBottom: 10
+
+  solo_centrado:{
+
+
+
   }
 })
 
-export default App;
+// componentes --> llamo al componente HolaMundo
+
+const saludando =()=>{
+
+  return(
+
+    <View
+        style={diseño.item_centrados_y_alineados} 
+          >
+          <HolaMundo nombre = "Hola 1"/>
+          <HolaMundo nombre = "Hola 2"/>
+          <HolaMundo nombre = "Hola 3"/>
+    </View>
+  )
+
+}
+
+
+
+export default saludando;
